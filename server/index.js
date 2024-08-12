@@ -7,15 +7,15 @@ const app = express();
 app.use(bodyParser.json());
 dotenv.config();
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 7000;
 const MONGOURL = process.env.MONGO_URL;
 
 mongoose    
         .connect(MONGOURL)
-        .then(()=>{
-            console.log("DB Connected Successfully");
-            app.listen(PORT,()=>{
-                console.log('Server is running on port :${PORT}');
+        .then(() => {
+            console.log("DB Connected Successfully.");
+            app.listen(PORT, () => {
+                console.log(`Server is running on port : ${PORT} `);
             });
         })
         .catch((error) => console.log(error));
